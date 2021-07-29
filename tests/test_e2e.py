@@ -3,6 +3,7 @@ import time
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
+from PageObjects.Homepage import HomePage
 from utilities.BaseClass import BaseClass
 
 
@@ -11,7 +12,9 @@ class TestE2E(BaseClass):
         print(self.driver.title)
 
         # clicking on shop button
-        self.driver.find_element_by_xpath("//a[@href='/angularpractice/shop']").click()
+        home_page = HomePage(self.driver)
+        home_page.get_shop().click()
+        # self.driver.find_element_by_xpath("//a[@href='/angularpractice/shop']").click()
 
         # getting title of shop page.
         print(self.driver.title)
