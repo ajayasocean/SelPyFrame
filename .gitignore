@@ -128,16 +128,14 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-# mess
+# mess & SelPyFrame
 .idea/
 Backend/AllureReports/*.json
 Backend/AllureReports/*.html
 .DS_Store
 puzzle/.DS_Store
 Backend/.DS_Store
-Selenium/screenshot/*.png
-PytestDemo/*.html
-PytestDemo/assets/
-
-# SelPyFrame
+*.png
+*.html
+assets/
 
