@@ -9,7 +9,9 @@ from PageObjects.CheckoutPage import CheckoutPage
 
 class TestE2E(BaseClass):
     def test_e2e(self):
-        print(self.driver.title)
+        log = self.get_logger()
+        # print(self.driver.title)
+        log.info(self.driver.title)
 
         # clicking on shop button in class itself  and creating next page object
         home_page = HomePage(self.driver)
@@ -74,7 +76,9 @@ class TestE2E(BaseClass):
         # validating the success text
         # message = self.driver.find_element_by_xpath("//div[@class='alert alert-success alert-dismissible']").text
         message = confirm_page.get_success_txt().text
-        print(message)
+        # print(message)
+        log.info(message)
         assert "Success!" in message
         self.driver.get_screenshot_as_file("output/screenshots/e2escreen.png")
-        print("2e2test.py finished execution")
+        # print("2e2test.py finished execution")
+        log.info("2e2test.py finished execution")

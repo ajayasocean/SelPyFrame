@@ -1,3 +1,5 @@
+import inspect
+import logging
 import pytest
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
@@ -15,6 +17,16 @@ class BaseClass:
         gender_dropdown = Select(locator)
         gender_dropdown.select_by_visible_text(text)
         gender_dropdown.select_by_index(0)
+
+    def get_logger(self):
+        logger_name = inspect.stack()[1][3]
+        logger = logging.getLogger(logger_name)
+        file_handler = logging.FileHandler("logfile.log")
+        formatter = logging.Formatter("%(asctime)s : %(levelname)s : %(name)s :%(message)s")
+        file_handler.setFormatter(formatter)
+        logger.addHandler(file_handler)  # filehandler object
+        logger.setLevel(logging.DEBUG)
+        return logger
 
 
 
