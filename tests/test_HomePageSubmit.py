@@ -22,7 +22,7 @@ class TestSubmitForm(BaseClass):
         self.select_dd_option(home_page.get_gender(), get_data['gender'])
         home_page.get_radios().click()
         home_page.get_radioe().click()
-        home_page.get_calender().send_keys(get_data['dob'])
+        home_page.get_calender().send_keys('02/02/1993')
         home_page.get_submit().click()
         message = home_page.get_s_txt().text
         # print(message)
@@ -34,6 +34,6 @@ class TestSubmitForm(BaseClass):
         self.driver.refresh()
 
     # @pytest.fixture(params=[('Tester', 'qa@tester.com', 'test@123', 'Male', '02/02/1993'), ('qa', 'test@qa.com', 'test@1234', 'Female', '03/02/1993')])
-    @pytest.fixture(params=HomeData.test_home_data)
+    @pytest.fixture(params=HomeData.get_test_data('TC1'))
     def get_data(self, request):
         return request.param
